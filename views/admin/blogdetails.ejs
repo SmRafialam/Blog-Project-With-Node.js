@@ -1,0 +1,38 @@
+<%- include("header") %>
+<%- include("leftbar") %>
+<body>
+    
+    <%- include("navbar") %>
+    <div class="br-mainpanel">
+    <div class="br-pagetitle">
+    <div class="container-fluid p-5">
+        <form method="POST" onsubmit="return doBlogDetails(this);">
+            <div class="form-group">
+                <label>Blog-Details Title</label>
+                <input name="titledetails" class="form-control" placeholder="Title">
+            </div>
+            <div class="form-group">
+                <label>Blog-Details Content</label>
+                <textarea name="contentdetails" class="form-control" placeholder="Content"></textarea> 
+            </div>
+            <button type="submit" class="btn btn-info" >Save</button>
+        </form>
+    </div>
+</div>
+</div>
+
+<script>
+    function doBlogDetails(form){
+        $.ajax({
+            url: "/do-blogdetails",
+            method: "POST",
+            data:{titledetails: form.titledetails.value, contentdetails: form.contentdetails.value},
+            success:function(response){
+                alert(response);
+            }
+        });
+        return false;
+    }
+</script>
+
+<%- include("footer") %>

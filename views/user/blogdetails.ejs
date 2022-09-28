@@ -1,149 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog-Details</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://pruvitnow.com/wp-content/uploads/2016/09/favicon-32x32.png"
-      sizes="16x16"
-    />
+<%- include("headerblogdetails") %>
 
-    <link rel="stylesheet" href="https://use.typekit.net/bsl5aws.css" />
+<main class="blogdetails">
 
-    <link
-      rel="stylesheet"
-      href="../../static/user/css/font-awesome/css/fontawesome-all.min.css"
-    />
-    <link rel="stylesheet" href="../../static/user/css/bootstrap4.4.1/bootstrap.min.css" />
-    <link rel="stylesheet" href="../../static/user/css/main.css" />
-  </head>
+<% blogdetails.forEach(function(blogdetails){ %>
 
-  <body>
-    <header class="blog-header">
-      <!-- header offer section  -->
-      <div class="color-black-bg text-center">
-        <div class="container-fluid sk-header__offer">
-          <a href="#" class="sk-header__offer--link disclaimer-reg"
-            >💸 Save 22% on Ketones and Reboot Systems
-            <span class="font-bold br-mobile"
-              >Offer ends in 12d 4h 10m 53s</span
-            ></a
-          >
-        </div>
-      </div>
-
-      <!-- header navbar section  -->
-      <nav class="sk-header__navbar border-bottom-1 sk-header__nav-desktop">
-        <div class="container">
-          <div
-            class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar sk-header__navbar-padding"
-          >
-            <a
-              class="navbar-brand sk-header__logo-box"
-              href="/index.html"
-              aria-label="Bootstrap"
-            >
-              <img
-                src="../../static/user/images/pruvitnow-logo-d.png"
-                class="img-fluid sk-header__logo-d"
-                alt="Logo desktop"
-              />
-            </a>
-
-            <ul class="navbar-nav ml-md-auto text-right">
-              <li class="nav-item">
-                <a class="nav-link sk-header__nav-link" href="#"
-                  ><img
-                    src="../../static/user/images/country.png"
-                    class="img-fluid sk-header__country-icon"
-                    alt="country"
-                  />
-                  <!-- <i class="fas fa-chevron-down country_select-arrow color-black"></i> -->
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link sk-header__nav-link" href="#"
-                  ><img
-                    src="../../static/user/images/user.png"
-                    class="img-fluid retina-img sk-header__icon"
-                    alt="user"
-                /></a>
-              </li>
-
-              <li class="nav-item">
-                <a
-                  class="nav-link sk-header__nav-link cart-has-product"
-                  href="#"
-                  ><img
-                    src="../../static/user/images/cart.png"
-                    class="img-fluid retina-img sk-header__icon"
-                    alt="cart"
-                /></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <!-- navbar mobile  -->
-      <nav class="sk-header__navbar border-bottom-1 sk-header__nav-mobile">
-        <div class="container">
-          <div class="navbar navbar-expand flex-md-row bd-navbar">
-            <a class="nav-link p-2" href="#"
-              ><img
-                src="../../static/user/images/country.png"
-                class="img-fluid country__mobile"
-                alt="country"
-              />
-              <!-- <i class="fas fa-chevron-down country_select-arrow color-black"></i> -->
-            </a>
-
-            <a class="m-auto" href="/index.html" aria-label="Bootstrap">
-              <img
-                src="../../static/user/images/pruvitnow-logo-m.png"
-                class="img-fluid sk-header__nav-mobile--logo"
-                alt="Logo desktop"
-              />
-            </a>
-
-            <ul class="navbar-nav ml-md-auto text-right">
-              <li class="nav-item">
-                <a class="nav-link p-2" href="#"
-                  ><img
-                    src="../../static/user/images/user.png"
-                    class="img-fluid sk-header__user-m sk-header__icon"
-                    alt="user"
-                /></a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link p-2 cart-has-product" href="#"
-                  ><img
-                    src="../../static/user/images/cart.png"
-                    class="img-fluid sk-header__icon"
-                    alt="cart"
-                /></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <!-- end of header  -->
     <section class="blog-details">
       <article class="container">
         <figure class="row">
           <div class="col-sm-12">
             <div class="blog-details-heading">
-              <h2>Chocolate-Covered Cherry Frappeketo™</h2>
+              <h2><%= blogdetails.titledetails %></h2>
               <p>
-                Today is the day for love and chocolate, and we’re showing it
-                with Pure Therapeutic Ketones® in our Chocolate Covered Cherry
-                Frappeketo™! Whip one of these up and share it with your love.
+                <%= blogdetails.contentdetails %>
               </p>
             </div>
 
@@ -239,6 +107,8 @@
         </figure>
       </article>
     </section>
+    <%  }) %>
+
     <!-- END of blog-details -->
 
     <section class="blog-details-comments">
@@ -664,42 +534,4 @@
         </div>
       </div>
 
-      <div class="footer__bottom">
-        <div class="container">
-          <div class="footer__bottom-content color-gray">
-            <p
-              class="copyright-text footer__bottom-text-left footer__bottom-copy"
-            >
-              Copyright @ 2019 Pruvit Ventures, Inc. All rights reserved.
-            </p>
-
-            <p class="copyright-text footer__bottom-text-right">
-              † These statements have not been evaluated by the FDA. This
-              product is not intended to diagnose,
-              <span class="br-desktop"
-                >treat, cure, or prevent any disease.</span
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script
-      src="https://kit.fontawesome.com/c64fff7a9f.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../../static/user/js/jquery-3.4.1.slim.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../../static/user/js/slick/slick.min.js"></script>
-    <script src="../../static/user/js/bootstrap4.4.1/bootstrap.min.js"></script>
-    <script src="../../static/user/js/script.js"></script>
-    <script src="../../static/user/js/script-2.js"></script>
-  </body>
-</html>
-
-
+      <%- include("footerblogdetails") %>

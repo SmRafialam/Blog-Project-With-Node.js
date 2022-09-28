@@ -1,0 +1,57 @@
+<%- include("header") %>
+
+<body>
+
+  <%- include("leftbar") %>
+
+
+  <%- include("navbar") %>
+
+<!-- main body -->
+<div class="br-mainpanel">
+    <div class="br-pagetitle">
+    <div class="container-fluid p-5">
+        <form action="/" method="post">
+            <table class="table">
+                <thead class="thead-dark bg-dark text-white">
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Thumbnail</th>
+                        <th>Categories</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Username</td>
+                        <td>example@gmail.com</td>
+                        <td>Thumbnail</td>
+                        <td>Male</td>
+                        <td>Active</td>
+                        <td>
+                            <a href="#" class="btn border-shadow update">
+                                <span class="text-gradient text-info"><i class="fa-solid fa-pen-to-square"></i></span>
+                            </a>
+                            <a href="#" class="btn border-shadow deletebtn">
+                                <span class="text-gradient text-danger"><i class="fa-solid fa-trash"></i></span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+</div>
+<!-- main body end-->
+
+
+<!-- footer -->
+<%- include("footer") %> 
+<!-- footer -->
+

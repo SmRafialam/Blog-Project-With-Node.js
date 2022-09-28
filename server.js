@@ -35,6 +35,14 @@ MongoCLient.connect(URL,function(error,MyMongoClient){
         });
     })
 
+    app.get('/blogdetails',function(req,res){
+        dbblog.collection("blogdetails").find().toArray(function(error,blogdetails){
+            blogdetails = blogdetails.reverse();
+            res.render("user/blogdetails", {blogdetails:blogdetails});
+
+        });
+    })
+
     app.get('/admin/dashboard',function(req,res){
         res.render("admin/dashboard");
     })
@@ -42,7 +50,15 @@ MongoCLient.connect(URL,function(error,MyMongoClient){
     app.get('/admin/blog',function(req,res){
         res.render("admin/blog");
     })
+
+    app.get('/admin/bloglist',function(req,res){
+        res.render("admin/bloglist");
+    })
     
+    app.get('/admin/blogdetails',function(req,res){
+        res.render("admin/blogdetails");
+    })
+
     app.post('/do-post',function(req,res){
         dbblog.collection("blog").insertOne(req.body,function(error,document){
             res.send("Blog posted successfully");
@@ -50,10 +66,24 @@ MongoCLient.connect(URL,function(error,MyMongoClient){
         });
         
     })
+    app.post('/do-blogdetails',function(req,res){
+        dbblog.collection("blogdetails").insertOne(req.body,function(error,document){
+            res.send("Blog Details posted successfully");
 
-    app.get('/blog/:id',function(req,res){
-        dbblog.collection("blog").findOne({"_id":ObjectId(req.params.id)},function(error,blog){
-            res.render("user/blogdetails", {blog:blog});
+        });
+        
+    })
+
+    // app.get('/blog/:id',function(req,res){
+    //     dbblog.collection("blog").findOne({"_id":ObjectId(req.params.id)},function(error,blogdetails){
+    //         res.render("user/home", {blog:blog});
+
+    //     })
+    // })
+
+    app.get('/blogdetails/:id',function(req,res){
+        dbblog.collection("blogdetails").findOne({"_id":ObjectId(req.params.id)},function(error,blogdetails){
+            res.render("user/blogdetails");
 
         })
     })
