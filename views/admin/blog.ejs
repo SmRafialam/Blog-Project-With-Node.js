@@ -6,7 +6,7 @@
     <div class="br-mainpanel">
     <div class="br-pagetitle">
     <div class="container-fluid p-5">
-        <form method="POST" onsubmit="return doBlog(this);">
+        <form method="POST"  onsubmit="return doBlog(this);">
             <!-- <div class="form-group">
                 <label>Title</label>
                 <input name="title" class="form-control" placeholder="Title">
@@ -20,7 +20,7 @@
             <div class="new_service my-3">
                 <div class="form-group">
                     <label>ID</label>
-                    <input name="id" class="form-control" placeholder="Id">
+                    <input name="id" type="number" class="form-control" placeholder="Id">
                 </div>
                 <div class="form-group">
                     <label>Title</label>
@@ -30,9 +30,16 @@
                     <label>Content</label>
                     <textarea name="content" class="form-control" placeholder="Content"></textarea> 
                 </div>
+                <!-- Button trigger modal -->
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Upload image
+                </button> -->
                 <div class="form-group">
-                    <label>Thumbnail</label>
-                    <textarea name="thumbnail" class="form-control" placeholder="Thumbnail"></textarea> 
+                    <form method="POST" id="form-upload" enctype="multipart/form-data">
+                        <label>Thumbnail</label>
+                        <input name="files" class="form-control" type="file" multiple>
+                    </form>
+                    
                 </div>
                 <div class="form-group py-2">
                     <label for="gender" class="text-dark">Categories: </label>
@@ -71,7 +78,7 @@
         $.ajax({
             url: "/do-post",
             method: "POST",
-            data:{title: form.title.value, content: form.content.value},
+            data:{title: form.title.value, content: form.content.value , files: form.files.value},
             success:function(response){
                 alert(response);
             }
@@ -79,5 +86,49 @@
         return false;
     }
 </script>
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Upload images</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" onsubmit="return doBlog(this);" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input name="file" class="form-control" type="file" multiple>
+                </div>
+                <button type="submit" class="btn btn-success">Upload</button> -->
+                <!-- <input type="submit" class="btn btn-success" value="Upload"> -->
+            <!-- </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script> -->
+    <!--  $("#form-upload").on("submit", function(e){
+         e.preventDefault();
+         function doUpload(form){
+         $.ajax({
+             url: "/do-upload-image",
+             method: "POST",
+             data: {file: form.file.value},
+             // data:new FormData(this),
+             contentType:false,
+             cache:false,
+             processData:false,
+             success:function(response){
+                 alert(response);
+             }
+         });
+    })
+}
+  </script> -->
+
 
 <%- include("footer") %>
